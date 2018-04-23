@@ -1,0 +1,47 @@
+package Guide;
+
+option java_package = "game.message";
+option java_outer_classname = "GuideMessage";
+
+message GuideEntry
+{
+    required int32 id = 1;
+    repeated int32 values = 2;
+}
+
+//******************//
+//  客户端发送消息  //
+//******************//
+
+// 客户端请求获取当前引导进度
+message ReqGuidedIdList
+{
+    enum MsgID { eMsgID = 123201; };
+}
+
+// 客户端请求保存引导进度
+message ReqSaveGuideList
+{
+    enum MsgID { eMsgID = 123202; };
+    repeated GuideEntry entry = 1; // 需保存的引导步骤
+	optional int32 currentId = 2; // 当前引导到的步骤Id
+}
+
+// 客户端请求删除引导记录
+message ReqRemoveGuideList
+{
+    enum MsgID { eMsgID = 123203; };
+    repeated GuideEntry entry = 1; // 需删除的引导步骤
+}
+
+//******************//
+//  服务端回复消息  //
+//******************//
+
+// 服务端返回当前的引导进度
+message ResGuidedIdList
+{
+    enum MsgID { eMsgID = 123101; };
+    repeated GuideEntry entry = 1; // 已经引导的步骤
+	required int32 currentId = 2; // 当前引导到的步骤Id
+}

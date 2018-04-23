@@ -1,0 +1,32 @@
+import "Backpack.proto";
+
+package Keys;
+
+option java_package = "game.message";
+option java_outer_classname = "KeysMessage";
+
+//******************//
+//  客户端发送消息  //
+//******************//
+
+//客户端请求使用激活码/兑换码
+message ReqUseKey
+{
+    enum MsgID { eMsgID = 132201; };
+	optional string token = 1;						// 从平台SDK中获取的访问令牌
+	required string key = 2;						// 激活码/兑换码的CODE
+}
+
+//******************//
+//  服务端回复消息  //
+//******************//
+
+//服务端回复使用激活码/兑换码
+message ResUseKey
+{
+    enum MsgID { eMsgID = 132101; };
+	optional int32 error = 1;       			// 错误码，2000则表示操作成功
+	optional string key = 2;					// 激活码/兑换码的CODE
+	repeated Backpack.Item items = 3;        	// 使用后获得的物品列表
+	repeated Backpack.Resource resources = 4;	// 使用后获得资源列表
+}

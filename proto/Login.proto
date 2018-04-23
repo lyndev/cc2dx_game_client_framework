@@ -1,0 +1,127 @@
+package Login;
+
+option java_package = "game.message";
+option java_outer_classname = "LoginMessage";
+
+// 角色信息
+message Role
+{
+    required string userId = 1;         // 用户ID
+    required string roleId = 2;         // 角色ID
+    required int32 roleLevel = 3;       // 等级
+    required int32  gender = 4;         // 性别(1男，0女)
+    required string roleName = 5;       // 角色名
+    optional int32 headIcon  = 6;       // 召唤师头像
+}
+
+// 客户端请求登录消息
+message ReqLogin
+{
+    enum MsgID { eMsgID = 100201; };
+    required int32 plaformId     = 1;       // 平台ID
+    required int32 serverId      = 2;       // 区服ID
+    required int32 loginType     = 3;       // 登录类型（1 = 测试；2 = 正式）
+    required string userName     = 4;       // 玩家用户名(代理返回)
+    required string zoneName     = 5;       // 区服名字
+    optional string sign         = 6;       // 登录验证串
+    optional string fgi          = 7;       // 渠道ID
+    optional int32  time         = 8;       // 登录时间
+    optional string clientVer    = 9;       // 客户端版本
+    optional string device       = 10;      // 客户端设备唯一ID
+    optional string platform_uid = 11;      // 玩家用户名(渠道返回)
+    optional string client       = 12;      // clientid(渠道返回)
+    optional int32 clientOS      = 13;      // 客户端操作系统(1 PC, 2 Android, 3 IOS)(不需要)
+    optional string roleName     = 14;      // 角色名字
+    optional int sex             = 15;      // 性别
+    optional string headURL      = 16;      // 头像地址
+}
+
+// 客户端请求创建角色
+message ReqCreateRole
+{
+    enum MsgID {eMsgID = 100202; };
+    required string roleName    = 1;       // 角色名
+    optional string serialNo    = 2;       // 激活码
+    optional int32 headIcon     = 3;       // 召唤师头像
+    optional string fedId       = 4;       // fedId
+    optional string extendParam = 5;       // 扩展参数(可选)
+    optional int sex            = 7;      // 性别
+    optional string headURL     = 8;      // 头像地址
+}
+
+// 创建角色失败
+message ResCreateRoleFailed
+{
+    enum MsgID {eMsgID = 100105; }
+    required int32 reason = 1;      // 原因:
+                                    //      1 = 角色名已存在
+                                    //      2 = 角色名为空
+                                    //      3 = 角色名中有空格
+                                    //      4 = 队伍名字超出12个字符
+                                    //      5 = 帐号名或角色名是敏感词
+                                    //      6 = 没有激活码或错误的激活码
+                                    //      7 = 角色名中包含特殊字符 ！!@#$%^&*()_+-=
+                                    //      8 = 登录超时
+}
+
+// 服务端回复登录失败
+message ResLoginFailed
+{
+    enum MsgID { eMsgID = 100101; };
+    required int32 reason = 1;      // 原因(1 = 账号验证未通过, 2 = 没有角色, 3 = 需要激活码, 4 = 客户端版本不对)
+}
+
+// 服务端回复登录成功
+message ResLoginSuccess
+{
+    enum MsgID { eMsgID = 100102; };
+    required Role role = 1;         // 角色信息
+    required string token = 2;      // 客户端重连令牌
+}
+
+// 客户端请求重连消息
+message ReqReconnect
+{
+    enum MsgID { eMsgID = 100203; };
+    required string userId = 1;     // 用户ID
+    required string token = 2;      // 客户端重连令牌
+    optional string clientVer = 3;  // 客户端版本
+}
+
+// 服务端回复重连失败
+message ResReconnetFialed
+{
+    enum MsgID { eMsgID = 100103; };
+    required int32 reason = 1;      // 失败原因(1 = 会话已过期；2 = 令牌不正确；3 = 未断开连接; 4 = 客户端版本不对)
+}
+
+// 服务端回复重连成功
+message ResReconnetSuccess
+{
+    enum MsgID { eMsgID = 100104; };
+    required string token = 1;      // 客户端重连令牌，令牌如果过期服务端会自动刷新，故客户端拿到后需对比更新令牌
+}
+
+// 服务端回复玩家没有登录（或者会话过期）
+message ResNotLogin
+{
+    enum MsgID { eMsgID = 100105; };
+}
+
+message ResCloseSocket
+{
+    enum MsgID { eMsgID = 100106; };
+    required int32 reason = 1;      // 1 = 被顶号；2 = 帐号异常，请重新登录；3 = 服务器重启
+}
+
+message ResPingPong
+{
+    enum MsgID { eMsgID = 100198; };
+    optional int64 value = 1;
+}
+
+message ResAck
+{
+    enum MsgID { eMsgID = 100199; };
+    optional int32 time = 1;
+}

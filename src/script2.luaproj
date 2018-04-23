@@ -1,0 +1,203 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>E439935D-B2A2-46AE-856D-2AA408428F33</ProjectGuid>
+    <!--$guid1$-->
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="script\" />
+    <Folder Include="script\Camera\" />
+    <Folder Include="script\config\" />
+    <Folder Include="script\config\data\" />
+    <Folder Include="script\core\" />
+    <Folder Include="script\core\animation\" />
+    <Folder Include="script\core\camera\" />
+    <Folder Include="script\core\entity\" />
+    <Folder Include="script\core\net\" />
+    <Folder Include="script\core\sdk\" />
+    <Folder Include="script\core\utils\" />
+    <Folder Include="script\core\world\" />
+    <Folder Include="script\function\" />
+    <Folder Include="script\function\chat\" />
+    <Folder Include="script\function\dirtyword\" />
+    <Folder Include="script\function\fight\" />
+    <Folder Include="script\function\friend\" />
+    <Folder Include="script\function\joystick\" />
+    <Folder Include="script\function\lobby\" />
+    <Folder Include="script\function\login\" />
+    <Folder Include="script\function\map\" />
+    <Folder Include="script\function\map\utils\" />
+    <Folder Include="script\function\package\" />
+    <Folder Include="script\function\singin\" />
+    <Folder Include="script\function\system\" />
+    <Folder Include="script\manager\" />
+    <Folder Include="script\message\" />
+    <Folder Include="script\ui\" />
+    <Folder Include="script\update\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="script\Camera\CameraFollow.lua" />
+    <Compile Include="script\config\data\q_animationeffect.lua" />
+    <Compile Include="script\config\data\q_chatface.lua" />
+    <Compile Include="script\config\data\q_exp.lua" />
+    <Compile Include="script\config\data\q_fixword.lua" />
+    <Compile Include="script\config\data\q_global.lua" />
+    <Compile Include="script\config\data\q_item.lua" />
+    <Compile Include="script\config\data\q_language.lua" />
+    <Compile Include="script\config\data\q_music.lua" />
+    <Compile Include="script\config\data\q_room.lua" />
+    <Compile Include="script\config\data\q_signin.lua" />
+    <Compile Include="script\config\data\q_task.lua" />
+    <Compile Include="script\config\data\q_zj_room.lua" />
+    <Compile Include="script\config\FileSearchPath.lua" />
+    <Compile Include="script\core\animation\AnimationBase.lua" />
+    <Compile Include="script\core\animation\AnimationCompositeAction.lua" />
+    <Compile Include="script\core\animation\AnimationCompositeNormal.lua" />
+    <Compile Include="script\core\animation\AnimationCompositeParticle.lua" />
+    <Compile Include="script\core\animation\AnimationCreateManager.lua" />
+    <Compile Include="script\core\animation\AnimationFrame.lua" />
+    <Compile Include="script\core\animation\AnimationImage.lua" />
+    <Compile Include="script\core\animation\AnimationParticle.lua" />
+    <Compile Include="script\core\animation\AnimationSpine.lua" />
+    <Compile Include="script\core\camera\CameraFollow.lua" />
+    <Compile Include="script\core\entity\Entity.lua" />
+    <Compile Include="script\core\entity\EntityManager.lua" />
+    <Compile Include="script\core\entity\EntityTank.lua" />
+    <Compile Include="script\core\entity\EntityView.lua" />
+    <Compile Include="script\core\entity\FightDaerPlayer.lua" />
+    <Compile Include="script\core\entity\FightMJPlayer.lua" />
+    <Compile Include="script\core\entity\FightPlayerBase.lua" />
+    <Compile Include="script\core\entity\Goods.lua" />
+    <Compile Include="script\core\entity\Item.lua" />
+    <Compile Include="script\core\entity\Player.lua" />
+    <Compile Include="script\core\entity\TankView.lua" />
+    <Compile Include="script\core\entity\Template.lua" />
+    <Compile Include="script\core\entity\TemplateFactory.lua" />
+    <Compile Include="script\core\net\MsgRegister.lua" />
+    <Compile Include="script\core\net\NetManager.lua" />
+    <Compile Include="script\core\sdk\ErrorCollector.lua" />
+    <Compile Include="script\core\sdk\Event.lua" />
+    <Compile Include="script\core\sdk\EventDispatcher.lua" />
+    <Compile Include="script\core\sdk\IDMaker.lua" />
+    <Compile Include="script\core\sdk\json.lua" />
+    <Compile Include="script\core\sdk\Log.lua" />
+    <Compile Include="script\core\sdk\MemoreLeak.lua" />
+    <Compile Include="script\core\sdk\MemoryUtil.lua" />
+    <Compile Include="script\core\sdk\MusicPlayer.lua" />
+    <Compile Include="script\core\sdk\parser.lua" />
+    <Compile Include="script\core\sdk\PlistCache.lua" />
+    <Compile Include="script\core\sdk\protobuf.lua" />
+    <Compile Include="script\core\sdk\SDKCallback.lua" />
+    <Compile Include="script\core\sdk\SimpleList.lua" />
+    <Compile Include="script\core\sdk\SimpleQueue.lua" />
+    <Compile Include="script\core\sdk\TimerBase.lua" />
+    <Compile Include="script\core\sdk\TimerEvent.lua" />
+    <Compile Include="script\core\sdk\TimerManager.lua" />
+    <Compile Include="script\core\sdk\TimerUtility.lua" />
+    <Compile Include="script\core\sdk\UIBase.lua" />
+    <Compile Include="script\core\sdk\UIOpenStack.lua" />
+    <Compile Include="script\core\sdk\utf8.lua" />
+    <Compile Include="script\core\utils\bit.lua" />
+    <Compile Include="script\core\utils\ByteArray.lua" />
+    <Compile Include="script\core\utils\ByteArrayVarint.lua" />
+    <Compile Include="script\core\utils\GameState.lua" />
+    <Compile Include="script\core\utils\Gettext.lua" />
+    <Compile Include="script\core\utils\init.lua" />
+    <Compile Include="script\core\utils\Localize.lua" />
+    <Compile Include="script\core\utils\Timer.lua" />
+    <Compile Include="script\core\utils\Utility.lua" />
+    <Compile Include="script\core\world\GameWorld.lua" />
+    <Compile Include="script\core\world\LoginWorld.lua" />
+    <Compile Include="script\core\world\World.lua" />
+    <Compile Include="script\ENUM.lua" />
+    <Compile Include="script\function\chat\FightChat.lua" />
+    <Compile Include="script\function\dirtyword\dirtyword.lua" />
+    <Compile Include="script\function\dirtyword\dirtywords.lua" />
+    <Compile Include="script\function\fight\FightBase.lua" />
+    <Compile Include="script\function\fight\FightManager.lua" />
+    <Compile Include="script\function\fight\FightManagerFactory.lua" />
+    <Compile Include="script\function\fight\FightQiPaiBase.lua" />
+    <Compile Include="script\function\fight\FightZJHManager.lua" />
+    <Compile Include="script\function\friend\FriendManager.lua" />
+    <Compile Include="script\function\joystick\JoysitckController.lua" />
+    <Compile Include="script\function\joystick\Joystick.lua" />
+    <Compile Include="script\function\joystick\JoystickArea.lua" />
+    <Compile Include="script\function\joystick\JoystickAxis.lua" />
+    <Compile Include="script\function\joystick\JoystickSkinned.lua" />
+    <Compile Include="script\function\joystick\KeyboardController.lua" />
+    <Compile Include="script\function\lobby\LobbyManager.lua" />
+    <Compile Include="script\function\login\LoginManager.lua" />
+    <Compile Include="script\function\map\FightBase.lua" />
+    <Compile Include="script\function\map\MapBase.lua" />
+    <Compile Include="script\function\map\MapConfig.lua" />
+    <Compile Include="script\function\map\MapManager.lua" />
+    <Compile Include="script\function\map\MapTile.lua" />
+    <Compile Include="script\function\map\utils\ExportMap.lua" />
+    <Compile Include="script\function\package\BackPackage.lua" />
+    <Compile Include="script\function\package\Item.lua" />
+    <Compile Include="script\function\package\Package.lua" />
+    <Compile Include="script\function\package\TankPackage.lua" />
+    <Compile Include="script\function\singin\SignInManager.lua" />
+    <Compile Include="script\function\system\LocalNotice.lua" />
+    <Compile Include="script\function\system\SystemSetting.lua" />
+    <Compile Include="script\LuaLogic.lua" />
+    <Compile Include="script\MainScene.lua" />
+    <Compile Include="script\manager\FuntionManager.lua" />
+    <Compile Include="script\manager\MarqueeManager.lua" />
+    <Compile Include="script\manager\RefreshManager.lua" />
+    <Compile Include="script\manager\ResCachePoolManager.lua" />
+    <Compile Include="script\manager\ResLoadManager.lua" />
+    <Compile Include="script\manager\UILoadingManager.lua" />
+    <Compile Include="script\manager\UIManager.lua" />
+    <Compile Include="script\manager\WidgetManager.lua" />
+    <Compile Include="script\message\MsgAck.lua" />
+    <Compile Include="script\message\MsgAgent.lua" />
+    <Compile Include="script\message\MsgBackpack.lua" />
+    <Compile Include="script\message\MsgBaseMessage.lua" />
+    <Compile Include="script\message\MsgChat.lua" />
+    <Compile Include="script\message\MsgFriend.lua" />
+    <Compile Include="script\message\MsgGuide.lua" />
+    <Compile Include="script\message\MsgKeys.lua" />
+    <Compile Include="script\message\MsgLogin.lua" />
+    <Compile Include="script\message\MsgMail.lua" />
+    <Compile Include="script\message\MsgNewFeature.lua" />
+    <Compile Include="script\message\MsgNotify.lua" />
+    <Compile Include="script\message\MsgOperActivity.lua" />
+    <Compile Include="script\message\MsgPlayer.lua" />
+    <Compile Include="script\message\Msgrank.lua" />
+    <Compile Include="script\message\MsgRebate.lua" />
+    <Compile Include="script\message\MsgRecharge.lua" />
+    <Compile Include="script\message\MsgRequire.lua" />
+    <Compile Include="script\message\MsgRoom.lua" />
+    <Compile Include="script\message\MsgSignIn.lua" />
+    <Compile Include="script\message\MsgTask.lua" />
+    <Compile Include="script\message\MsgVip.lua" />
+    <Compile Include="script\RequireFile.lua" />
+    <Compile Include="script\ui\UIEditorMain.lua" />
+    <Compile Include="script\ui\UIFightZJH.lua" />
+    <Compile Include="script\ui\UIHelperZJH.lua" />
+    <Compile Include="script\ui\UILogin.lua" />
+    <Compile Include="script\ui\UIMain.lua" />
+    <Compile Include="script\ui\UIPlayerCreateRoom.lua" />
+    <Compile Include="script\ui\UITipsNoticeForCenter.lua" />
+    <Compile Include="script\ui\UIWXHeadHelper.lua" />
+    <Compile Include="script\update\UpdateDownloaderEx.lua" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>
